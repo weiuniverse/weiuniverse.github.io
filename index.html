@@ -247,6 +247,270 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/13/GAN_overview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhengwei Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhengwei' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/13/GAN_overview/" itemprop="url">
+                  GAN overview
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-13T16:50:00+08:00">
+                2017-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="从生成模型到生成对抗网络"><a href="#从生成模型到生成对抗网络" class="headerlink" title="从生成模型到生成对抗网络"></a>从生成模型到生成对抗网络</h1><h2 id="1-生成模型与判别模型"><a href="#1-生成模型与判别模型" class="headerlink" title="1. 生成模型与判别模型"></a>1. 生成模型与判别模型</h2><p>主流的深度学习算法分为两种: 生成模型和判别模型。其中：</p>
+<h3 id="1-生成模型"><a href="#1-生成模型" class="headerlink" title="(1) 生成模型:"></a>(1) 生成模型:</h3><p>对联合分布 P(X,Y)进行建模。 X为输入，Y为输出或者隐含层。</p>
+<p>直观来讲，我们认为 输入的数据X和输出的标签或者回归值Y合并的变量构成一个分布P(X,Y)。而我们所有的训练样本 (X,Y)均是由这个分布生成。对于生成模型的目的，就是学习到这样一个分布，也可以说是(X,Y)的联合分布。</p>
+<h3 id="2-判别模型："><a href="#2-判别模型：" class="headerlink" title="(2) 判别模型："></a>(2) 判别模型：</h3><p>直接对 Y=f(X)或者 P(Y|X)建模。</p>
+<p>而对于判别模型，我们认为输入数据 X 和输入值 Y构成函数关系，而判别模型的任务就是学习直接学习到这个函数关系，从而直接由输入X估计输出值Y。</p>
+<h2 id="2-生成模型的基本概念"><a href="#2-生成模型的基本概念" class="headerlink" title="2. 生成模型的基本概念"></a>2. 生成模型的基本概念</h2><h3 id="1-生成模型中最基本的概念就是数据样本的分布。"><a href="#1-生成模型中最基本的概念就是数据样本的分布。" class="headerlink" title="(1) 生成模型中最基本的概念就是数据样本的分布。"></a>(1) 生成模型中最基本的概念就是数据样本的分布。</h3><p>利用这个分布我们可以生成数据样本，也可以利用条件概率的方法来做统计推断。</p>
+<h3 id="2-统计推断"><a href="#2-统计推断" class="headerlink" title="(2) 统计推断"></a>(2) 统计推断</h3><p>在生成模型的方法中，我们常常要利用数据样本的分布来进行推断。通常的方法是利用条件概率公式:</p>
+<p> $$p(Y|X) = \frac{p(X,Y)}{p(X)}$$</p>
+<p>而P(X)在通常的模型中被作为一个归一化因子。所以需要求的模型就是 P(X,Y).只要得到了 P(X,Y)，我们就可以很轻易的推断出P(Y|X).</p>
+<h3 id="3-生成模型中的基本模型-Wikipedia"><a href="#3-生成模型中的基本模型-Wikipedia" class="headerlink" title="(3) 生成模型中的基本模型 Wikipedia"></a>(3) 生成模型中的基本模型 <a href="https://en.wikipedia.org/wiki/Generative_model" target="_blank" rel="external">Wikipedia</a></h3><ol>
+<li>Gaussian mixture model</li>
+<li>Hidden Markov model</li>
+<li>Probabilistic context-free grammar</li>
+<li>Naive Bayes</li>
+<li>Averaged one-dependence estimators</li>
+<li>Latent Dirichlet allocation</li>
+<li>Restricted Boltzmann machine</li>
+<li>Generative adversarial networks</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/10/GAN_conclusion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhengwei Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhengwei' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/10/GAN_conclusion/" itemprop="url">
+                  tensorflow learning
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-10T18:40:00+08:00">
+                2017-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Conclusion-for-Generative-Adversarial-Networks"><a href="#Conclusion-for-Generative-Adversarial-Networks" class="headerlink" title="Conclusion for Generative Adversarial Networks"></a>Conclusion for Generative Adversarial Networks</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ol>
+<li>GAN</li>
+<li>DCGAN</li>
+<li>CGAN</li>
+<li>improv GAN</li>
+<li>LapGAN</li>
+<li>info-GAN</li>
+<li>WGAN</li>
+</ol>
+<h2 id="1-GAN"><a href="#1-GAN" class="headerlink" title="1. GAN"></a>1. GAN</h2><p>The basic GAN model was proposed by Ian Goodfellow in 2014.<br>This model include 2 Parts: generative model and discriminate model:</p>
+<h3 id="Generative-model"><a href="#Generative-model" class="headerlink" title="Generative model"></a>Generative model</h3><p>The generative model intend to  produce the sample close to real sample.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/08/tensorflow_learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -421,7 +685,7 @@ with tf.name_scope(&apos;layer1&apos;):
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
