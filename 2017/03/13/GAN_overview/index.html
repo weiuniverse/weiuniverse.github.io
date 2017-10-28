@@ -87,22 +87,49 @@
 
 
 
-<meta name="description" content="从生成模型到生成对抗网络1. 生成模型与判别模型主流的深度学习算法分为两种: 生成模型和判别模型。其中：
+<meta name="description" content="MathJax.Hub.Config({
+tex2jax: {inlineMath: [[&apos;$&apos;,&apos;$&apos;], [&apos;\\(&apos;,&apos;\\)&apos;]]}
+});
+
+
+
+
+
+
+从生成模型到生成对抗网络1. 生成模型与判别模型主流的深度学习算法分为两种: 生成模型和判别模型。其中：
 (1) 生成模型:对联合分布 P(X,Y)进行建模。 X为输入，Y为输出或者隐含层。
-直观来讲，我们认为 输入的数据X和输出的标签或者回归值Y合并的变量构成一个分布P(X,Y)。而我们所有的训练样本 (X,Y)均是由这个分布生成。对于生成模型的目的，就是学习到这样一个分布，也可以说是(">
+直观来讲，我们认为 输入的数据X和输出的标签">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GAN overview">
 <meta property="og:url" content="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/13/GAN_overview/index.html">
 <meta property="og:site_name" content="Zhengwei' Blog">
-<meta property="og:description" content="从生成模型到生成对抗网络1. 生成模型与判别模型主流的深度学习算法分为两种: 生成模型和判别模型。其中：
+<meta property="og:description" content="MathJax.Hub.Config({
+tex2jax: {inlineMath: [[&apos;$&apos;,&apos;$&apos;], [&apos;\\(&apos;,&apos;\\)&apos;]]}
+});
+
+
+
+
+
+
+从生成模型到生成对抗网络1. 生成模型与判别模型主流的深度学习算法分为两种: 生成模型和判别模型。其中：
 (1) 生成模型:对联合分布 P(X,Y)进行建模。 X为输入，Y为输出或者隐含层。
-直观来讲，我们认为 输入的数据X和输出的标签或者回归值Y合并的变量构成一个分布P(X,Y)。而我们所有的训练样本 (X,Y)均是由这个分布生成。对于生成模型的目的，就是学习到这样一个分布，也可以说是(">
-<meta property="og:updated_time" content="2017-10-28T16:30:03.585Z">
+直观来讲，我们认为 输入的数据X和输出的标签">
+<meta property="og:updated_time" content="2017-10-28T16:32:50.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GAN overview">
-<meta name="twitter:description" content="从生成模型到生成对抗网络1. 生成模型与判别模型主流的深度学习算法分为两种: 生成模型和判别模型。其中：
+<meta name="twitter:description" content="MathJax.Hub.Config({
+tex2jax: {inlineMath: [[&apos;$&apos;,&apos;$&apos;], [&apos;\\(&apos;,&apos;\\)&apos;]]}
+});
+
+
+
+
+
+
+从生成模型到生成对抗网络1. 生成模型与判别模型主流的深度学习算法分为两种: 生成模型和判别模型。其中：
 (1) 生成模型:对联合分布 P(X,Y)进行建模。 X为输入，Y为输出或者隐含层。
-直观来讲，我们认为 输入的数据X和输出的标签或者回归值Y合并的变量构成一个分布P(X,Y)。而我们所有的训练样本 (X,Y)均是由这个分布生成。对于生成模型的目的，就是学习到这样一个分布，也可以说是(">
+直观来讲，我们认为 输入的数据X和输出的标签">
 
 
 
@@ -337,7 +364,13 @@
       
 
       
-        <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+        <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
 
