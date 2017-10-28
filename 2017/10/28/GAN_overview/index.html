@@ -87,22 +87,31 @@
 
 
 
-<meta name="description" content="tensorflow learningPart 1: Prepare dataThis is common for all deep learning work. And it depends on the data. In python, many people like to use pickle to store data.
-import tensorflow as tf
-from tens">
+<meta name="description" content="title: GAN overview
+date: 2017-03-13 16:50:00
+
+从生成模型到生成对抗网络1. 生成模型与判别模型主流的深度学习算法分为两种: 生成模型和判别模型。其中：
+(1) 生成模型:对联合分布 P(X,Y)进行建模。 X为输入，Y为输出或者隐含层。
+直观来讲，我们认为 输入的数据X和输出的标签或者回归值Y合并的变量构成一个分布P(X,Y)。而我们所有的训">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tensorflow learning">
-<meta property="og:url" content="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/08/tensorflow_learning/index.html">
+<meta property="og:title" content="Zhengwei' Blog">
+<meta property="og:url" content="https://github.com/weiuniverse/weiuniverse.github.io/2017/10/28/GAN_overview/index.html">
 <meta property="og:site_name" content="Zhengwei' Blog">
-<meta property="og:description" content="tensorflow learningPart 1: Prepare dataThis is common for all deep learning work. And it depends on the data. In python, many people like to use pickle to store data.
-import tensorflow as tf
-from tens">
-<meta property="og:updated_time" content="2017-03-09T10:39:52.593Z">
+<meta property="og:description" content="title: GAN overview
+date: 2017-03-13 16:50:00
+
+从生成模型到生成对抗网络1. 生成模型与判别模型主流的深度学习算法分为两种: 生成模型和判别模型。其中：
+(1) 生成模型:对联合分布 P(X,Y)进行建模。 X为输入，Y为输出或者隐含层。
+直观来讲，我们认为 输入的数据X和输出的标签或者回归值Y合并的变量构成一个分布P(X,Y)。而我们所有的训">
+<meta property="og:updated_time" content="2017-10-28T16:29:02.664Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tensorflow learning">
-<meta name="twitter:description" content="tensorflow learningPart 1: Prepare dataThis is common for all deep learning work. And it depends on the data. In python, many people like to use pickle to store data.
-import tensorflow as tf
-from tens">
+<meta name="twitter:title" content="Zhengwei' Blog">
+<meta name="twitter:description" content="title: GAN overview
+date: 2017-03-13 16:50:00
+
+从生成模型到生成对抗网络1. 生成模型与判别模型主流的深度学习算法分为两种: 生成模型和判别模型。其中：
+(1) 生成模型:对联合分布 P(X,Y)进行建模。 X为输入，Y为输出或者隐含层。
+直观来讲，我们认为 输入的数据X和输出的标签或者回归值Y合并的变量构成一个分布P(X,Y)。而我们所有的训">
 
 
 
@@ -130,13 +139,13 @@ from tens">
 
 
 
-  <link rel="canonical" href="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/08/tensorflow_learning/"/>
+  <link rel="canonical" href="https://github.com/weiuniverse/weiuniverse.github.io/2017/10/28/GAN_overview/"/>
 
 
 
 
 
-  <title> tensorflow learning | Zhengwei' Blog </title>
+  <title>  | Zhengwei' Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +264,7 @@ from tens">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/08/tensorflow_learning/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/weiuniverse/weiuniverse.github.io/2017/10/28/GAN_overview/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhengwei Wei">
@@ -276,7 +285,7 @@ from tens">
             
             
               
-                tensorflow learning
+                
               
             
           </h1>
@@ -291,8 +300,8 @@ from tens">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-08T15:28:16-05:00">
-                2017-03-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T12:11:47-04:00">
+                2017-10-28
               </time>
             
 
@@ -310,8 +319,8 @@ from tens">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/08/tensorflow_learning/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/08/tensorflow_learning/" itemprop="commentCount"></span>
+                <a href="/2017/10/28/GAN_overview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/28/GAN_overview/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -337,28 +346,34 @@ from tens">
       
 
       
-        <h2 id="tensorflow-learning"><a href="#tensorflow-learning" class="headerlink" title="tensorflow learning"></a>tensorflow learning</h2><h3 id="Part-1-Prepare-data"><a href="#Part-1-Prepare-data" class="headerlink" title="Part 1: Prepare data"></a>Part 1: Prepare data</h3><p>This is common for all deep learning work. And it depends on the data. In python, many people like to use pickle to store data.</p>
-<pre><code>import tensorflow as tf
-from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets(&quot;MNIST_data/&quot;,one_hot = True)
-</code></pre><p>In general, data include inputs and labels.</p>
-<h3 id="Part-2-build-model"><a href="#Part-2-build-model" class="headerlink" title="Part 2: build model"></a>Part 2: build model</h3><p>At most time, we could create a python file named model.py to define our deep learning model.</p>
-<p>In general, the model include the input layers, hidden layers and loss function.</p>
-<p>We use placeholder to set the input layers in tensorflow. (Take mnist as example)</p>
-<pre><code>inputs = tf.placeholder(dtype=&apos;float32&apos;,shape=[None,784],name=&apos;inputs&apos;)
-labels = tf.placeholder(dtype=&apos;float32&apos;,shape=[None,10],name=&apos;labels&apos;)
-</code></pre><p>And we define every layers by the code below:</p>
-<pre><code>in_size = 784
-hid_size = 10
-with tf.name_scope(&apos;layer1&apos;):
-    Weights= tf.Variable(tf.random_normal([in_size,hid_size]),name=&apos;Weights&apos;)
-    biases = tf.Variable(tf.random_normal(1,hid_size),name = &apos;biases&apos;)
-    l1 = tf.add(tf.matmul(inputs,Weights),biases)
-</code></pre><p>define loss:</p>
-<pre><code>loss = tf.loss.mean_square(l1,labels)
-</code></pre><p>define summary:</p>
-<pre><code>tf.summary.scalar(loss,name=&apos;loss&apos;)
-</code></pre><h3 id="Part-3-train-and-save"><a href="#Part-3-train-and-save" class="headerlink" title="Part 3: train and save"></a>Part 3: train and save</h3>
+        <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<hr>
+<p>title: GAN overview</p>
+<p>date: 2017-03-13 16:50:00</p>
+<hr>
+<h1 id="从生成模型到生成对抗网络"><a href="#从生成模型到生成对抗网络" class="headerlink" title="从生成模型到生成对抗网络"></a>从生成模型到生成对抗网络</h1><h2 id="1-生成模型与判别模型"><a href="#1-生成模型与判别模型" class="headerlink" title="1. 生成模型与判别模型"></a>1. 生成模型与判别模型</h2><p>主流的深度学习算法分为两种: 生成模型和判别模型。其中：</p>
+<h3 id="1-生成模型"><a href="#1-生成模型" class="headerlink" title="(1) 生成模型:"></a>(1) 生成模型:</h3><p>对联合分布 P(X,Y)进行建模。 X为输入，Y为输出或者隐含层。</p>
+<p>直观来讲，我们认为 输入的数据X和输出的标签或者回归值Y合并的变量构成一个分布P(X,Y)。而我们所有的训练样本 (X,Y)均是由这个分布生成。对于生成模型的目的，就是学习到这样一个分布，也可以说是(X,Y)的联合分布。生成模型可以得到模型中任何一个变量的值。</p>
+<h3 id="2-判别模型："><a href="#2-判别模型：" class="headerlink" title="(2) 判别模型："></a>(2) 判别模型：</h3><p>直接对 Y=f(X)或者 P(Y|X)建模。</p>
+<p>而对于判别模型，我们认为输入数据 X 和输出值 Y构成函数关系，而判别模型的任务就是学习直接学习到这个函数关系，从而直接由输入X估计输出值Y。<br>判别模型只能再给定输入的情况下得到输出的值。</p>
+<h2 id="2-生成模型的基本概念"><a href="#2-生成模型的基本概念" class="headerlink" title="2. 生成模型的基本概念"></a>2. 生成模型的基本概念</h2><h3 id="1-生成模型中最基本的概念就是数据样本的分布。"><a href="#1-生成模型中最基本的概念就是数据样本的分布。" class="headerlink" title="(1) 生成模型中最基本的概念就是数据样本的分布。"></a>(1) 生成模型中最基本的概念就是数据样本的分布。</h3><p>利用这个分布我们可以生成数据样本，也可以利用条件概率的方法得到一个条件概率密度函数来做统计推断。</p>
+<h3 id="2-统计推断"><a href="#2-统计推断" class="headerlink" title="(2) 统计推断"></a>(2) 统计推断</h3><p>在生成模型的方法中，我们常常要利用数据样本的分布来进行推断。通常的方法是利用条件概率公式:</p>
+<p> $$p(Y|X) = \frac{p(X,Y)}{p(X)}$$</p>
+<p>而P(X)在通常的模型中被作为一个归一化因子。所以需要求的模型就是 P(X,Y).只要得到了 P(X,Y)，我们就可以很轻易的推断出P(Y|X).</p>
+<h3 id="3-生成模型中的基本模型-Wikipedia"><a href="#3-生成模型中的基本模型-Wikipedia" class="headerlink" title="(3) 生成模型中的基本模型 Wikipedia"></a>(3) 生成模型中的基本模型 <a href="https://en.wikipedia.org/wiki/Generative_model" target="_blank" rel="external">Wikipedia</a></h3><ol>
+<li>Gaussian mixture model</li>
+<li>Hidden Markov model</li>
+<li>Probabilistic context-free grammar</li>
+<li>Naive Bayes</li>
+<li>Averaged one-dependence estimators</li>
+<li>Latent Dirichlet allocation</li>
+<li>Restricted Boltzmann machine</li>
+<li>Generative adversarial networks</li>
+</ol>
+<h2 id="2-生成对抗网络"><a href="#2-生成对抗网络" class="headerlink" title="2.生成对抗网络"></a>2.生成对抗网络</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>生成对抗网络在2014年被Ian Goodfellow所提出。</p>
+
       
     </div>
 
@@ -388,15 +403,15 @@ with tf.name_scope(&apos;layer1&apos;):
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/10/28/GAN_conclusion/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/19/programming/" rel="prev" title="编程入门">
-                编程入门 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -514,7 +529,7 @@ with tf.name_scope(&apos;layer1&apos;):
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tensorflow-learning"><span class="nav-number">1.</span> <span class="nav-text">tensorflow learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-1-Prepare-data"><span class="nav-number">1.1.</span> <span class="nav-text">Part 1: Prepare data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-2-build-model"><span class="nav-number">1.2.</span> <span class="nav-text">Part 2: build model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-3-train-and-save"><span class="nav-number">1.3.</span> <span class="nav-text">Part 3: train and save</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从生成模型到生成对抗网络"><span class="nav-number">1.</span> <span class="nav-text">从生成模型到生成对抗网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-生成模型与判别模型"><span class="nav-number">1.1.</span> <span class="nav-text">1. 生成模型与判别模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-生成模型"><span class="nav-number">1.1.1.</span> <span class="nav-text">(1) 生成模型:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-判别模型："><span class="nav-number">1.1.2.</span> <span class="nav-text">(2) 判别模型：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-生成模型的基本概念"><span class="nav-number">1.2.</span> <span class="nav-text">2. 生成模型的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-生成模型中最基本的概念就是数据样本的分布。"><span class="nav-number">1.2.1.</span> <span class="nav-text">(1) 生成模型中最基本的概念就是数据样本的分布。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-统计推断"><span class="nav-number">1.2.2.</span> <span class="nav-text">(2) 统计推断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-生成模型中的基本模型-Wikipedia"><span class="nav-number">1.2.3.</span> <span class="nav-text">(3) 生成模型中的基本模型 Wikipedia</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-生成对抗网络"><span class="nav-number">1.3.</span> <span class="nav-text">2.生成对抗网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">1.3.1.</span> <span class="nav-text">基本概念</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -653,9 +668,9 @@ with tf.name_scope(&apos;layer1&apos;):
 
     <script type="text/javascript">
       var disqus_shortname = 'weiuniverse-github-io';
-      var disqus_identifier = '2017/03/08/tensorflow_learning/';
+      var disqus_identifier = '2017/10/28/GAN_overview/';
 
-      var disqus_title = "tensorflow learning";
+      var disqus_title = "";
 
 
       function run_disqus_script(disqus_script) {
