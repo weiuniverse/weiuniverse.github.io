@@ -958,7 +958,23 @@ with tf.name_scope(&apos;layer1&apos;):
 <pre><code>loss = tf.loss.mean_square(l1,labels)
 </code></pre><p>define summary:</p>
 <pre><code>tf.summary.scalar(loss,name=&apos;loss&apos;)
-</code></pre><h3 id="Part-3-train-and-save"><a href="#Part-3-train-and-save" class="headerlink" title="Part 3: train and save"></a>Part 3: train and save</h3>
+</code></pre><h3 id="Part-3-train-and-save"><a href="#Part-3-train-and-save" class="headerlink" title="Part 3: train and save"></a>Part 3: train and save</h3><h4 id="define-the-training-size"><a href="#define-the-training-size" class="headerlink" title="define the training size"></a>define the training size</h4><p>batch_size = 100<br>all_size = 50000</p>
+<h4 id="define-the-Session"><a href="#define-the-Session" class="headerlink" title="define the Session"></a>define the Session</h4><p>with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:</p>
+<h4 id="initialize-the-parameters"><a href="#initialize-the-parameters" class="headerlink" title="initialize the parameters"></a>initialize the parameters</h4><pre><code>tf.global_variables_initializer().run()
+merged = tf.summary.merge_all()
+train_writer = tf.summary.FileWriter(&apos;logs/&apos;,sess.graph)
+for epoch in range(1000):
+    begin = epoch*batch_size%(all_size-batch_size)
+    end = begin + batch_size
+    batch = inputs[begin:end]
+    print(batch.shape)
+    batch_labels = labels[epoch*batch_size:(epoch+1) * batch_size]
+</code></pre><h4 id="input-the-training-data"><a href="#input-the-training-data" class="headerlink" title="input the training data"></a>input the training data</h4><pre><code>    train_summary,loss_value=sess.run([train_step,loss],feed_dict={image_inputs:batch,points:batch_labels})
+    if (epoch%10==0):
+        train_writer.add_summary(train_summary,epoch)
+        print(loss_value)
+train_writer.close()
+</code></pre>
           
         
       
