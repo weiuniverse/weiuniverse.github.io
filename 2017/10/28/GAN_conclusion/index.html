@@ -85,6 +85,9 @@
 
 
 
+  <meta property="fb:admins" content="" />
+  <meta property="fb:app_id" content="" />
+
 
 
 <meta name="description" content="MathJax.Hub.Config({
@@ -190,6 +193,24 @@ WGAN
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -369,7 +390,7 @@ WGAN
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/10/28/GAN_conclusion/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/28/GAN_conclusion/" itemprop="commentCount"></span>
+                  <span class="post-comments-count fb-comments-count" data-href="https://github.com/weiuniverse/weiuniverse.github.io/2017/10/28/GAN_conclusion/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -447,6 +468,16 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 
       
         
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
       
 
       
@@ -491,11 +522,11 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
           
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
+      <div class="fb-comments"
+           data-href="https://github.com/weiuniverse/weiuniverse.github.io/2017/10/28/GAN_conclusion/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
       </div>
     
   </div>

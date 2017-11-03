@@ -85,6 +85,9 @@
 
 
 
+  <meta property="fb:admins" content="" />
+  <meta property="fb:app_id" content="" />
+
 
 
 <meta name="description" content="tensorflow learningPart 1: Prepare dataThis is common for all deep learning work. And it depends on the data. In python, many people like to use pickle to store data.
@@ -142,6 +145,24 @@ from tens">
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -321,7 +342,7 @@ from tens">
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/03/08/tensorflow_learning/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/08/tensorflow_learning/" itemprop="commentCount"></span>
+                  <span class="post-comments-count fb-comments-count" data-href="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/08/tensorflow_learning/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -416,6 +437,16 @@ train_writer.close()
 
       
         
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
       
 
       
@@ -456,11 +487,11 @@ train_writer.close()
           
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
+      <div class="fb-comments"
+           data-href="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/08/tensorflow_learning/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
       </div>
     
   </div>

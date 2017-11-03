@@ -85,6 +85,9 @@
 
 
 
+  <meta property="fb:admins" content="" />
+  <meta property="fb:app_id" content="" />
+
 
 
 <meta property="og:type" content="website">
@@ -132,6 +135,24 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -316,7 +337,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/11/01/Tree-RL-md/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/01/Tree-RL-md/" itemprop="commentCount"></span>
+                  <span class="post-comments-count fb-comments-count" data-href="https://github.com/weiuniverse/weiuniverse.github.io/2017/11/01/Tree-RL-md/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -449,7 +470,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/10/28/GAN_conclusion/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/28/GAN_conclusion/" itemprop="commentCount"></span>
+                  <span class="post-comments-count fb-comments-count" data-href="https://github.com/weiuniverse/weiuniverse.github.io/2017/10/28/GAN_conclusion/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -598,7 +619,7 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/04/19/programming/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/19/programming/" itemprop="commentCount"></span>
+                  <span class="post-comments-count fb-comments-count" data-href="https://github.com/weiuniverse/weiuniverse.github.io/2017/04/19/programming/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -731,7 +752,7 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/03/13/GAN_overview/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/13/GAN_overview/" itemprop="commentCount"></span>
+                  <span class="post-comments-count fb-comments-count" data-href="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/13/GAN_overview/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -878,7 +899,7 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/03/08/tensorflow_learning/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/08/tensorflow_learning/" itemprop="commentCount"></span>
+                  <span class="post-comments-count fb-comments-count" data-href="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/08/tensorflow_learning/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
