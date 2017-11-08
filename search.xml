@@ -4,6 +4,10 @@
     <title><![CDATA[progressive_gan]]></title>
     <url>%2F2017%2F11%2F07%2Fprogressive-gan%2F</url>
     <content type="text"><![CDATA[Contributions###Primary contribution: Propose a training methodology for GANs where start with low-resolution images, and then progressively increase the resolution by adding layers to the networks. ###Others: Increasing variation using minibatch standard deviation A new normalization in G and D Propose sliced Wasserstein distance (SWD) to estimate the statistical similarity. progressive training Training frame Transition from 16x16 to 32x32 Benefits of progressive TrainingMore Stable: Early on, the generation of smaller images is substantially more stable because there is less class information and fewer modes. By increasing the resolution little by little we are continuously asking a much simpler question compared to the end goal of discovering a mapping from latent vectors. The reduced training time: With progressively growing GANs most of the iterations are done at lower resolutions, and comparable result quality is often obtained up to 2–6 times faster, depending on the ﬁnal output resolution. sliced Wasserstein distanceMotivation The previous methods like MS-SSIM do not directly assess image quality in terms of similarity to the training set. Therefore, they propose a new metric sliced Wasserstein distance which will measure the distance between training set and generated samples. Experiments Convergence and Training speed Experiments]]></content>
+      <tags>
+        <tag>GAN</tag>
+        <tag>deeplearning</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Paper Read Tree Structured Reinforcement learning for object localization]]></title>
@@ -44,8 +48,8 @@
     <url>%2F2017%2F03%2F08%2Ftensorflow_learning%2F</url>
     <content type="text"><![CDATA[tensorflow learningPart 1: Prepare dataThis is common for all deep learning work. And it depends on the data. In python, many people like to use pickle to store data. import tensorflow as tf from tensorflow.examples.tutorials.mnist import input_data mnist = input_data.read_data_sets(&quot;MNIST_data/&quot;,one_hot = True) In general, data include inputs and labels. Part 2: build modelAt most time, we could create a python file named model.py to define our deep learning model. In general, the model include the input layers, hidden layers and loss function. We use placeholder to set the input layers in tensorflow. (Take mnist as example) inputs = tf.placeholder(dtype=&apos;float32&apos;,shape=[None,784],name=&apos;inputs&apos;) labels = tf.placeholder(dtype=&apos;float32&apos;,shape=[None,10],name=&apos;labels&apos;) And we define every layers by the code below: in_size = 784 hid_size = 10 with tf.name_scope(&apos;layer1&apos;): Weights= tf.Variable(tf.random_normal([in_size,hid_size]),name=&apos;Weights&apos;) biases = tf.Variable(tf.random_normal(1,hid_size),name = &apos;biases&apos;) l1 = tf.add(tf.matmul(inputs,Weights),biases) define loss: loss = tf.loss.mean_square(l1,labels) define summary: tf.summary.scalar(loss,name=&apos;loss&apos;) Part 3: train and savedefine the training sizebatch_size = 100all_size = 50000 define the Sessionwith tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess: initialize the parameterstf.global_variables_initializer().run() merged = tf.summary.merge_all() train_writer = tf.summary.FileWriter(&apos;logs/&apos;,sess.graph) for epoch in range(1000): begin = epoch*batch_size%(all_size-batch_size) end = begin + batch_size batch = inputs[begin:end] print(batch.shape) batch_labels = labels[epoch*batch_size:(epoch+1) * batch_size] input the training data train_summary,loss_value=sess.run([train_step,loss],feed_dict={image_inputs:batch,points:batch_labels}) if (epoch%10==0): train_writer.add_summary(train_summary,epoch) print(loss_value) train_writer.close()]]></content>
       <tags>
-        <tag>tensorflow</tag>
         <tag>deeplearning</tag>
+        <tag>tensorflow</tag>
       </tags>
   </entry>
 </search>
