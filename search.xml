@@ -4,6 +4,9 @@
     <title><![CDATA[progressive_gan]]></title>
     <url>%2F2017%2F11%2F07%2Fprogressive-gan%2F</url>
     <content type="text"><![CDATA[Contributions###Primary contribution: Propose a training methodology for GANs where start with low-resolution images, and then progressively increase the resolution by adding layers to the networks. ###Others: Increasing variation using minibatch standard deviation A new normalization in G and D Propose sliced Wasserstein distance (SWD) to estimate the statistical similarity. progressive training Training frame Transition from 16x16 to 32x32 Benefits of progressive TrainingMore Stable: Early on, the generation of smaller images is substantially more stable because there is less class information and fewer modes. By increasing the resolution little by little we are continuously asking a much simpler question compared to the end goal of discovering a mapping from latent vectors. The reduced training time: With progressively growing GANs most of the iterations are done at lower resolutions, and comparable result quality is often obtained up to 2–6 times faster, depending on the ﬁnal output resolution. sliced Wasserstein distanceMotivation The previous methods like MS-SSIM do not directly assess image quality in terms of similarity to the training set. Therefore, they propose a new metric sliced Wasserstein distance which will measure the distance between training set and generated samples. Experiments Convergence and Training speed Experiments]]></content>
+      <categories>
+        <category>-deeplearning</category>
+      </categories>
       <tags>
         <tag>GAN</tag>
         <tag>deeplearning</tag>
