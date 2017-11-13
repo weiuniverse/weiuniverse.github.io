@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Course_notes for cse547 —— number_theory]]></title>
     <url>%2F2017%2F11%2F12%2Fnumber-theory%2F</url>
-    <content type="text"><![CDATA[MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} }); 1.Divisibility $m\n\LeftrightArrowm&gt;0 and n=mk$ $gcd(m,n)=max{k\mid k\m and k\n}$ lcm(m,n)=min{k\mid k&gt;0,m\k,n\k}2.Primes3.Prime examples4.Factorial Factors5.relative prime6.MOD: the congruence relation7.Independent Residue8.Additional Applications9.$ \varphi &amp; \mu$]]></content>
+    <content type="text"><![CDATA[MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} }); 1.Divisibility2.Primes3.Prime examples4.Factorial Factors5.relative prime6.MOD: the congruence relation7.Independent Residue8.Additional Applications9.$ \varphi &amp; \mu$]]></content>
       <categories>
         <category>concrete_mathematics</category>
         <category>course_notes</category>
