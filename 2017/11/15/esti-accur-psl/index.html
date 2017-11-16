@@ -112,7 +112,7 @@ tex2jax: {inlineMath: [[&apos;$&apos;,&apos;$&apos;], [&apos;\\(&apos;,&apos;\\)
 
 
 IntroductionBackgroundEstimating the accuracy of classifiers is central to machine learning and many other ﬁelds. Most">
-<meta property="og:updated_time" content="2017-11-16T03:30:52.580Z">
+<meta property="og:updated_time" content="2017-11-16T03:33:55.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Estimating Accuracy from Unlabeled Data A Probabilistic Logic Approach">
 <meta name="twitter:description" content="MathJax.Hub.Config({
@@ -469,8 +469,8 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 <p>In probabilistic logic, we are instead interested in inferring the probabilities of these ground predicates and rules being true, given a set of observed ground predicates and rules.Furthermore, the truth values of ground predicates and rules may be continuous and lie in the interval [0,1], instead of being boolean,representing the probability that the corresponding ground predicate or rule is true.</p>
 <h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><p>  Function Approximation Outputs: $\hat{f}^d_j(X),j=1,…,N^d, inputs X\in \chi$<br>  Target Function Outputs: $f^d(X),inputs X\in \chi$<br>  Function Approximation Error Rates: $e^d_j,j=1,…,N^d$</p>
 <h4 id="Ensemble-Rules"><a href="#Ensemble-Rules" class="headerlink" title="Ensemble Rules"></a>Ensemble Rules</h4><p>$$\hat{f}^d_j(X)\land \neg e^d_j \rightarrow f^d(X),\neg \hat{f}^d_j(X)\land \neg e^d_j \rightarrow \neg f^d(X)$$<br>$$\hat{f}^d_j(X)\land e^d_j \rightarrow\neg f^d(X),\neg \hat{f}^d_j(X)\land  e^d_j \rightarrow f^d(X)$$</p>
-<h4 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h4><h5 id="Mutual-Exclusion-Rule"><a href="#Mutual-Exclusion-Rule" class="headerlink" title="Mutual Exclusion Rule"></a>Mutual Exclusion Rule</h5><p>$$ME(d_1,d_2)\land \hat{f}^{d_1}_j(X) \land f^{d_2}(X) \rightarrow e^{d_1}_j$$</p>
-<h5 id="Subsumption-Rule"><a href="#Subsumption-Rule" class="headerlink" title="Subsumption Rule"></a>Subsumption Rule</h5><p>$$SUB(d_1,d_2)\land \neg\hat{f}^{d_1}_j(X) \land f^{d_2}(X) \rightarrow e^{d_1}_j$$</p>
+<h4 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h4><h5 id="Mutual-Exclusion-Rule"><a href="#Mutual-Exclusion-Rule" class="headerlink" title="Mutual Exclusion Rule"></a>Mutual Exclusion Rule</h5><p>$$ME(d_1,d_2)\land \hat{f}^{d_1}_j(X) \land f^{d_2}(X) \rightarrow e^{d_1}_j,for d_1\neq d_2=1,…,D,j=1,…,N^{d_1},and X\in \chi $$</p>
+<h5 id="Subsumption-Rule"><a href="#Subsumption-Rule" class="headerlink" title="Subsumption Rule"></a>Subsumption Rule</h5><p>$$SUB(d_1,d_2)\land \neg\hat{f}^{d_1}_j(X) \land f^{d_2}(X) \rightarrow e^{d_1}_j,for d_1=d_2=1,…,D,j=1,…,N^{d_1},and X\in \chi$$</p>
 <h2 id="Perform-probabilistic-inference"><a href="#Perform-probabilistic-inference" class="headerlink" title="Perform probabilistic inference"></a>Perform probabilistic inference</h2><p>(ii) performing probabilistic inference using these rules as priors,in order to obtain the most likely values of the $e^d_j$ and the $f^d$,which are not observed.</p>
 
       
