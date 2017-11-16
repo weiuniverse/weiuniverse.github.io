@@ -98,10 +98,9 @@ tex2jax: {inlineMath: [[&apos;$&apos;,&apos;$&apos;], [&apos;\\(&apos;,&apos;\\)
 
 
 
-
-Estimating Accuracy from Unlabeled Data A Probabilistic Logic ApproachIntroductionBackgroundEstimating the accuracy of">
+IntroductionBackgroundEstimating the accuracy of classifiers is central to machine learning and many other ﬁelds. Most">
 <meta property="og:type" content="article">
-<meta property="og:title" content="estimating accuracy from unlabeled data A psl Approach">
+<meta property="og:title" content="Estimating Accuracy from Unlabeled Data A Probabilistic Logic Approach">
 <meta property="og:url" content="https://github.com/weiuniverse/weiuniverse.github.io/2017/11/15/esti-accur-psl/index.html">
 <meta property="og:site_name" content="Zhengwei' Blog">
 <meta property="og:description" content="MathJax.Hub.Config({
@@ -112,11 +111,10 @@ tex2jax: {inlineMath: [[&apos;$&apos;,&apos;$&apos;], [&apos;\\(&apos;,&apos;\\)
 
 
 
-
-Estimating Accuracy from Unlabeled Data A Probabilistic Logic ApproachIntroductionBackgroundEstimating the accuracy of">
-<meta property="og:updated_time" content="2017-11-16T02:50:55.335Z">
+IntroductionBackgroundEstimating the accuracy of classifiers is central to machine learning and many other ﬁelds. Most">
+<meta property="og:updated_time" content="2017-11-16T03:16:31.146Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="estimating accuracy from unlabeled data A psl Approach">
+<meta name="twitter:title" content="Estimating Accuracy from Unlabeled Data A Probabilistic Logic Approach">
 <meta name="twitter:description" content="MathJax.Hub.Config({
 tex2jax: {inlineMath: [[&apos;$&apos;,&apos;$&apos;], [&apos;\\(&apos;,&apos;\\)&apos;]]}
 });
@@ -125,8 +123,7 @@ tex2jax: {inlineMath: [[&apos;$&apos;,&apos;$&apos;], [&apos;\\(&apos;,&apos;\\)
 
 
 
-
-Estimating Accuracy from Unlabeled Data A Probabilistic Logic ApproachIntroductionBackgroundEstimating the accuracy of">
+IntroductionBackgroundEstimating the accuracy of classifiers is central to machine learning and many other ﬁelds. Most">
 
 
 
@@ -160,7 +157,7 @@ Estimating Accuracy from Unlabeled Data A Probabilistic Logic ApproachIntroducti
 
 
 
-  <title> estimating accuracy from unlabeled data A psl Approach | Zhengwei' Blog </title>
+  <title> Estimating Accuracy from Unlabeled Data A Probabilistic Logic Approach | Zhengwei' Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -372,7 +369,7 @@ Estimating Accuracy from Unlabeled Data A Probabilistic Logic ApproachIntroducti
             
             
               
-                estimating accuracy from unlabeled data A psl Approach
+                Estimating Accuracy from Unlabeled Data A Probabilistic Logic Approach
               
             
           </h1>
@@ -464,10 +461,14 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 </script>
 
 
-
-<h1 id="Estimating-Accuracy-from-Unlabeled-Data-A-Probabilistic-Logic-Approach"><a href="#Estimating-Accuracy-from-Unlabeled-Data-A-Probabilistic-Logic-Approach" class="headerlink" title="Estimating Accuracy from Unlabeled Data A Probabilistic Logic Approach"></a>Estimating Accuracy from Unlabeled Data A Probabilistic Logic Approach</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>Estimating the accuracy of classifiers is central to machine learning and many other ﬁelds. Most existing approaches to eastimating accuracy are supervised, meaning that a set of labeled examples is required for the Estimation. However, being able to estimate the accuracies of classifiers using only Unlabeled data is very important for many applications. Futhermore, tasks which involve making several predictions which are tied together by logical constraints are abundant in machine learning.<br><a id="more"></a></p>
-<h3 id="Intuition"><a href="#Intuition" class="headerlink" title="Intuition"></a>Intuition</h3><h4 id="Mutual-Exclusion"><a href="#Mutual-Exclusion" class="headerlink" title="Mutual Exclusion"></a>Mutual Exclusion</h4><p>If domains d1 and d2 are mutually exclusive,then $f^{d_1} =1$ implies that $f^{d_2} =0$.<br>For example, in the NELL setting, if a NP belongs to the “city” category,then it cannot also belong to the “animal” category.</p>
-<h4 id="Subsumption"><a href="#Subsumption" class="headerlink" title="Subsumption"></a>Subsumption</h4><p> For example, in the NELL setting, if a NP belongs to the “cat” category, then it must also belong to the “animal” category.</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Estimating the accuracy of classifiers is central to machine learning and many other ﬁelds. Most existing approaches to eastimating accuracy are supervised, meaning that a set of labeled examples is required for the Estimation. However, being able to estimate the accuracies of classifiers using only Unlabeled data is very important for many applications. Futhermore, tasks which involve making several predictions which are tied together by logical constraints are abundant in machine learning.<br><a id="more"></a></p>
+<h2 id="Intuition"><a href="#Intuition" class="headerlink" title="Intuition"></a>Intuition</h2><h3 id="Mutual-Exclusion"><a href="#Mutual-Exclusion" class="headerlink" title="Mutual Exclusion"></a>Mutual Exclusion</h3><p>If domains d1 and d2 are mutually exclusive,then $f^{d_1} =1$ implies that $f^{d_2} =0$.<br>For example, in the NELL setting, if a NP belongs to the “city” category,then it cannot also belong to the “animal” category.</p>
+<h3 id="Subsumption"><a href="#Subsumption" class="headerlink" title="Subsumption"></a>Subsumption</h3><p> For example, in the NELL setting, if a NP belongs to the “cat” category, then it must also belong to the “animal” category.</p>
+<h1 id="Proposed-Methed"><a href="#Proposed-Methed" class="headerlink" title="Proposed Methed"></a>Proposed Methed</h1><h2 id="Define-a-set-of-Logic-Rules"><a href="#Define-a-set-of-Logic-Rules" class="headerlink" title="Define a set of Logic Rules"></a>Define a set of Logic Rules</h2><p>(i) defining a set of logic rules for modeling the logical constraints between the $f^d$ and the $\hat{f}^d_j$ ,in terms of the error rates $e^d_j$ and the known logical constraints.</p>
+<h3 id="Probabilistic-Logic"><a href="#Probabilistic-Logic" class="headerlink" title="Probabilistic Logic"></a>Probabilistic Logic</h3><p>In classical logic, we have a set of predicates (e.g., mammal(x) indicating whether x is a mammal, where x is a variable) and a set of rules deﬁned in terms of these predicates. These ground predicates and rules take boolean values.</p>
+<p>In probabilistic logic, we are instead interested in inferring the probabilities of these ground predicates and rules being true, given a set of observed ground predicates and rules.Furthermore, the truth values of ground predicates and rules may be continuous and lie in the interval [0,1], instead of being boolean,representing the probability that the corresponding ground predicate or rule is true.</p>
+<h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><p>  Function Approximation Outputs: $\hat{f}^d_j(X),j=1,…,N^d, inputs X\in \chi$<br>  Target Function Outputs: $f^d(X),inputs X\in \chi$<br>  Function Approximation Error Rates: $e^d_j,j=1,…,N^d$</p>
+<h4 id="Ensemble-Rules"><a href="#Ensemble-Rules" class="headerlink" title="Ensemble Rules"></a>Ensemble Rules</h4><h4 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h4><h2 id="Perform-probabilistic-inference"><a href="#Perform-probabilistic-inference" class="headerlink" title="Perform probabilistic inference"></a>Perform probabilistic inference</h2><p>(ii) performing probabilistic inference using these rules as priors,in order to obtain the most likely values of the $e^d_j$ and the $f^d$,which are not observed.</p>
 
       
     </div>
@@ -660,7 +661,7 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Estimating-Accuracy-from-Unlabeled-Data-A-Probabilistic-Logic-Approach"><span class="nav-number">1.</span> <span class="nav-text">Estimating Accuracy from Unlabeled Data A Probabilistic Logic Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Background"><span class="nav-number">1.1.1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intuition"><span class="nav-number">1.1.2.</span> <span class="nav-text">Intuition</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mutual-Exclusion"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Mutual Exclusion</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Subsumption"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Subsumption</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">1.1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intuition"><span class="nav-number">1.2.</span> <span class="nav-text">Intuition</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mutual-Exclusion"><span class="nav-number">1.2.1.</span> <span class="nav-text">Mutual Exclusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subsumption"><span class="nav-number">1.2.2.</span> <span class="nav-text">Subsumption</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Proposed-Methed"><span class="nav-number">2.</span> <span class="nav-text">Proposed Methed</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Define-a-set-of-Logic-Rules"><span class="nav-number">2.1.</span> <span class="nav-text">Define a set of Logic Rules</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Probabilistic-Logic"><span class="nav-number">2.1.1.</span> <span class="nav-text">Probabilistic Logic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model"><span class="nav-number">2.1.2.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ensemble-Rules"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">Ensemble Rules</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Constraints"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">Constraints</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Perform-probabilistic-inference"><span class="nav-number">2.2.</span> <span class="nav-text">Perform probabilistic inference</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -801,7 +802,7 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
       var disqus_shortname = 'weiuniverse-github-io';
       var disqus_identifier = '2017/11/15/esti-accur-psl/';
 
-      var disqus_title = "estimating accuracy from unlabeled data A psl Approach";
+      var disqus_title = "Estimating Accuracy from Unlabeled Data A Probabilistic Logic Approach";
 
 
       function run_disqus_script(disqus_script) {
