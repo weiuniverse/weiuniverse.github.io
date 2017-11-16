@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[estimating accuracy from unlabeled data A psl Approach]]></title>
+    <url>%2F2017%2F11%2F15%2Festi-accur-psl%2F</url>
+    <content type="text"><![CDATA[MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} }); Estimating Accuracy from Unlabeled Data A Probabilistic Logic ApproachIntroductionBackgroundEstimating the accuracy of classifiers is central to machine learning and many other ﬁelds. Most existing approaches to eastimating accuracy are supervised, meaning that a set of labeled examples is required for the Estimation. However, being able to estimate the accuracies of classifiers using only Unlabeled data is very important for many applications. Futhermore, tasks which involve making several predictions which are tied together by logical constraints are abundant in machine learning. IntuitionMutual ExclusionIf domains d1 and d2 are mutually exclusive,then $f^{d_1} =1$ implies that $f^{d_2} =0$.For example, in the NELL setting, if a NP belongs to the “city” category,then it cannot also belong to the “animal” category. Subsumption For example, in the NELL setting, if a NP belongs to the “cat” category, then it must also belong to the “animal” category.]]></content>
+      <categories>
+        <category>paper_read</category>
+      </categories>
+      <tags>
+        <tag>logic</tag>
+        <tag>Unlabeled_Data</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Course_notes for cse547 —— number_theory]]></title>
     <url>%2F2017%2F11%2F12%2Fnumber-theory%2F</url>
     <content type="text"><![CDATA[MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} }); DivisibilityPrimesPrime examplesFactorial Factorsrelative primeMOD: the congruence relationIndependent ResidueAdditional Applications$$ \varphi &amp; \mu$$]]></content>
@@ -31,6 +43,7 @@
       <categories>
         <category>deeplearning</category>
         <category>Object_Detection</category>
+        <category>paper_read</category>
       </categories>
       <tags>
         <tag>Reinforcement_Leearning</tag>
