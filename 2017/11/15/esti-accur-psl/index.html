@@ -112,7 +112,7 @@ tex2jax: {inlineMath: [[&apos;$&apos;,&apos;$&apos;], [&apos;\\(&apos;,&apos;\\)
 
 
 IntroductionBackgroundEstimating the accuracy of classifiers is central to machine learning and many other ﬁelds. Most">
-<meta property="og:updated_time" content="2017-11-16T03:16:31.146Z">
+<meta property="og:updated_time" content="2017-11-16T03:26:53.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Estimating Accuracy from Unlabeled Data A Probabilistic Logic Approach">
 <meta name="twitter:description" content="MathJax.Hub.Config({
@@ -468,7 +468,8 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 <h3 id="Probabilistic-Logic"><a href="#Probabilistic-Logic" class="headerlink" title="Probabilistic Logic"></a>Probabilistic Logic</h3><p>In classical logic, we have a set of predicates (e.g., mammal(x) indicating whether x is a mammal, where x is a variable) and a set of rules deﬁned in terms of these predicates. These ground predicates and rules take boolean values.</p>
 <p>In probabilistic logic, we are instead interested in inferring the probabilities of these ground predicates and rules being true, given a set of observed ground predicates and rules.Furthermore, the truth values of ground predicates and rules may be continuous and lie in the interval [0,1], instead of being boolean,representing the probability that the corresponding ground predicate or rule is true.</p>
 <h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><p>  Function Approximation Outputs: $\hat{f}^d_j(X),j=1,…,N^d, inputs X\in \chi$<br>  Target Function Outputs: $f^d(X),inputs X\in \chi$<br>  Function Approximation Error Rates: $e^d_j,j=1,…,N^d$</p>
-<h4 id="Ensemble-Rules"><a href="#Ensemble-Rules" class="headerlink" title="Ensemble Rules"></a>Ensemble Rules</h4><h4 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h4><h2 id="Perform-probabilistic-inference"><a href="#Perform-probabilistic-inference" class="headerlink" title="Perform probabilistic inference"></a>Perform probabilistic inference</h2><p>(ii) performing probabilistic inference using these rules as priors,in order to obtain the most likely values of the $e^d_j$ and the $f^d$,which are not observed.</p>
+<h4 id="Ensemble-Rules"><a href="#Ensemble-Rules" class="headerlink" title="Ensemble Rules"></a>Ensemble Rules</h4><p>$$\hat{f}^d_j(X)\land \neg e^d_j \rightarrow f^d(X),\neg \hat{f}^d_j(X)\land \neg e^d_j \rightarrow \neg f^d(X)$$<br>$$\hat{f}^d_j(X)\land e^d_j \rightarrow\neg f^d(X),\neg \hat{f}^d_j(X)\land  e^d_j \rightarrow f^d(X)$$</p>
+<h4 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h4><h2 id="Perform-probabilistic-inference"><a href="#Perform-probabilistic-inference" class="headerlink" title="Perform probabilistic inference"></a>Perform probabilistic inference</h2><p>(ii) performing probabilistic inference using these rules as priors,in order to obtain the most likely values of the $e^d_j$ and the $f^d$,which are not observed.</p>
 
       
     </div>
