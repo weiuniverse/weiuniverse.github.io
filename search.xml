@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[face_times_A_website_of_face]]></title>
     <url>%2F2017%2F12%2F02%2Fface-times-A-website-of-face%2F</url>
-    <content type="text"><![CDATA[MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} }); IntroductionWe design a website to do face detection, face landmark localization, face swap, face age and gender recognition.]]></content>
+    <content type="text"><![CDATA[MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} }); IntroductionWe design a website to do face detection, face landmark localization, face swap, face age and gender recognition. Face detectionHarr cascadeAt first, we tried harr cascade with opencv to do face detection. However, this method cannot achieve a comparable performance. DlibThen, we switched to Dlib. And use the dlib.get_the_frontal_face() as detector. Due to the limited time, we cannot choose better method like SSD, Mask-RCNN. SSDWe plan to use Single Shot Detection method to imporve the performance. Face AlignmentWe use dlib to implement this function. Dlib implement the paper One Millisecond Face Alignment with an Ensemble of Regression Trees]]></content>
       <categories>
         <category>computer vision</category>
       </categories>
