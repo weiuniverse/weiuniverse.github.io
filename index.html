@@ -430,22 +430,23 @@
 
       
         
-          
-            <script type="text/x-mathjax-config">
+          <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 });
 </script>
-<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>We design a website to do face detection, face landmark localization, face swap, face age and gender recognition.</p>
-<h1 id="Face-detection"><a href="#Face-detection" class="headerlink" title="Face detection"></a>Face detection</h1><h2 id="Harr-cascade"><a href="#Harr-cascade" class="headerlink" title="Harr cascade"></a>Harr cascade</h2><p>At first, we tried harr cascade with opencv to do face detection. However, this method cannot achieve a comparable performance.</p>
-<h2 id="Dlib"><a href="#Dlib" class="headerlink" title="Dlib"></a>Dlib</h2><p>Then, we switched to Dlib. And use the dlib.get_the_frontal_face() as detector. Due to the limited time, we cannot choose better method like SSD, Mask-RCNN.</p>
-<h2 id="SSD"><a href="#SSD" class="headerlink" title="SSD"></a>SSD</h2><p>We plan to use Single Shot Detection method to imporve the performance.</p>
-<h1 id="Face-Alignment"><a href="#Face-Alignment" class="headerlink" title="Face Alignment"></a>Face Alignment</h1><p>We use dlib to implement this function. Dlib implement the paper One Millisecond Face Alignment with an Ensemble of Regression Trees</p>
-
-          
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>We design a website to do face detection, face landmark localization, face swap, face age and gender recognition.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/02/face-times-A-website-of-face/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
