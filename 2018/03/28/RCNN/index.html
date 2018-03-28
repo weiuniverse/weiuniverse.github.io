@@ -102,13 +102,15 @@
 首先从RCNN说起吧。
 主要步骤RCNN算法分为4个步骤
 候选区域生成： 一张图像生成1K~2K个候选区域 （采用Selective Search 方法）特征提取： 对每个候选区域，使用深度卷积网络提取特征 （CNN）类别判断： 特征送入每一类的SVM 分类">
-<meta property="og:updated_time" content="2018-03-28T21:09:51.534Z">
+<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/steps.png">
+<meta property="og:updated_time" content="2018-03-28T21:14:52.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测论文重读 - RCNN">
 <meta name="twitter:description" content="简介近期发现之前很多目标检测的论文都只是粗略的读了一遍，只把关键点过了一遍，现打算把论文再拿出来多读几遍，把论文中的一些思路和细节总结一遍。
 首先从RCNN说起吧。
 主要步骤RCNN算法分为4个步骤
 候选区域生成： 一张图像生成1K~2K个候选区域 （采用Selective Search 方法）特征提取： 对每个候选区域，使用深度卷积网络提取特征 （CNN）类别判断： 特征送入每一类的SVM 分类">
+<meta name="twitter:image" content="https://github.com/weiuniverse/weiuniverse.github.io/steps.png">
 
 
 
@@ -451,8 +453,7 @@
         <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>近期发现之前很多目标检测的论文都只是粗略的读了一遍，只把关键点过了一遍，现打算把论文再拿出来多读几遍，把论文中的一些思路和细节总结一遍。</p>
 <p>首先从RCNN说起吧。</p>
 <h2 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h2><p>RCNN算法分为4个步骤</p>
-<p>候选区域生成： 一张图像生成1K~2K个候选区域 （采用Selective Search 方法）<br>特征提取： 对每个候选区域，使用深度卷积网络提取特征 （CNN）<br>类别判断： 特征送入每一类的SVM 分类器，判别是否属于该类<br>位置精修： 使用回归器精细修正候选框位置</p>
-<a id="more"></a>
+<p>候选区域生成： 一张图像生成1K~2K个候选区域 （采用Selective Search 方法）<br>特征提取： 对每个候选区域，使用深度卷积网络提取特征 （CNN）<br>类别判断： 特征送入每一类的SVM 分类器，判别是否属于该类<br>位置精修： 使用回归器精细修正候选框位置<br><img src="steps.png" alt=""><br><a id="more"></a></p>
 <h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><h3 id="1-Region-Proposal-候选区位置选择"><a href="#1-Region-Proposal-候选区位置选择" class="headerlink" title="1. Region Proposal 候选区位置选择"></a>1. Region Proposal 候选区位置选择</h3><p>论文中提到了几种经典的方法， objectness, selective search, category-independent object proposals, constrained parametric min-cuts(CPMC), multi-scale combinatorial group 。<br>最后文章中采用了 selective search 的方法。由于现在这些方法基本都被 Region Proposal Network 取代了，所以暂时不做进一步调研。</p>
 <h3 id="2-CNN-特征提取"><a href="#2-CNN-特征提取" class="headerlink" title="2. CNN 特征提取"></a>2. CNN 特征提取</h3><p>在这篇文章之前也有一些文章尝试使用 CNN 来提取特征用于检测任务， 如overfeat.</p>
 <h2 id="其他细节和分析"><a href="#其他细节和分析" class="headerlink" title="其他细节和分析"></a>其他细节和分析</h2><h3 id="1-Visualizing-learned-features"><a href="#1-Visualizing-learned-features" class="headerlink" title="1. Visualizing learned features"></a>1. Visualizing learned features</h3><p>第一层： capture oriented edges and opponent layers.<br>使用一个简单的非参数方法，将10 million个proposals根据单个单元的activations 进行排序，并采用非极大抑制，然后将期中top 16的proposal和acitvation 可视化出来进行观察。</p>
