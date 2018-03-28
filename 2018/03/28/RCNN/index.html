@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Object_Detection," />
 
 
 
@@ -90,12 +90,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zhengwei' Blog">
-<meta property="og:url" content="https://github.com/weiuniverse/weiuniverse.github.io/categories/concrete-mathematics/index.html">
+<meta name="description" content="简介近期发现之前很多目标检测的论文都只是粗略的读了一遍，只把关键点过了一遍，现打算把论文再拿出来多读几遍，把论文中的一些思路和细节总结一遍。
+首先从RCNN说起吧。
+主要步骤RCNN算法分为4个步骤
+候选区域生成： 一张图像生成1K~2K个候选区域 （采用Selective Search 方法）特征提取： 对每个候选区域，使用深度卷积网络提取特征 （CNN）类别判断： 特征送入每一类的SVM 分类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="目标检测论文重读 - RCNN">
+<meta property="og:url" content="https://github.com/weiuniverse/weiuniverse.github.io/2018/03/28/RCNN/index.html">
 <meta property="og:site_name" content="Zhengwei' Blog">
+<meta property="og:description" content="简介近期发现之前很多目标检测的论文都只是粗略的读了一遍，只把关键点过了一遍，现打算把论文再拿出来多读几遍，把论文中的一些思路和细节总结一遍。
+首先从RCNN说起吧。
+主要步骤RCNN算法分为4个步骤
+候选区域生成： 一张图像生成1K~2K个候选区域 （采用Selective Search 方法）特征提取： 对每个候选区域，使用深度卷积网络提取特征 （CNN）类别判断： 特征送入每一类的SVM 分类">
+<meta property="og:updated_time" content="2018-03-28T21:09:51.534Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhengwei' Blog">
+<meta name="twitter:title" content="目标检测论文重读 - RCNN">
+<meta name="twitter:description" content="简介近期发现之前很多目标检测的论文都只是粗略的读了一遍，只把关键点过了一遍，现打算把论文再拿出来多读几遍，把论文中的一些思路和细节总结一遍。
+首先从RCNN说起吧。
+主要步骤RCNN算法分为4个步骤
+候选区域生成： 一张图像生成1K~2K个候选区域 （采用Selective Search 方法）特征提取： 对每个候选区域，使用深度卷积网络提取特征 （CNN）类别判断： 特征送入每一类的SVM 分类">
 
 
 
@@ -123,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/weiuniverse/weiuniverse.github.io/categories/concrete-mathematics/"/>
+  <link rel="canonical" href="https://github.com/weiuniverse/weiuniverse.github.io/2018/03/28/RCNN/"/>
 
 
 
 
 
-  <title> Category: concrete_mathematics | Zhengwei' Blog </title>
+  <title> 目标检测论文重读 - RCNN | Zhengwei' Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -172,7 +185,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -310,47 +323,223 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        concrete_mathematics
-        <small>Category</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/12/number-theory/" itemprop="url">
-              
-                <span itemprop="name">Course_notes for cse547 —— number_theory</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-12T18:41:11-05:00"
-              content="2017-11-12" >
-          11-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/weiuniverse/weiuniverse.github.io/2018/03/28/RCNN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhengwei Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhengwei' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                目标检测论文重读 - RCNN
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T13:32:53-04:00">
+                2018-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/deeplearning/" itemprop="url" rel="index">
+                    <span itemprop="name">deeplearning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/deeplearning/computer-vision/" itemprop="url" rel="index">
+                    <span itemprop="name">computer vision</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/28/RCNN/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://github.com/weiuniverse/weiuniverse.github.io/2018/03/28/RCNN/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>近期发现之前很多目标检测的论文都只是粗略的读了一遍，只把关键点过了一遍，现打算把论文再拿出来多读几遍，把论文中的一些思路和细节总结一遍。</p>
+<p>首先从RCNN说起吧。</p>
+<h2 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h2><p>RCNN算法分为4个步骤</p>
+<p>候选区域生成： 一张图像生成1K~2K个候选区域 （采用Selective Search 方法）<br>特征提取： 对每个候选区域，使用深度卷积网络提取特征 （CNN）<br>类别判断： 特征送入每一类的SVM 分类器，判别是否属于该类<br>位置精修： 使用回归器精细修正候选框位置</p>
+<a id="more"></a>
+<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><h3 id="1-Region-Proposal-候选区位置选择"><a href="#1-Region-Proposal-候选区位置选择" class="headerlink" title="1. Region Proposal 候选区位置选择"></a>1. Region Proposal 候选区位置选择</h3><p>论文中提到了几种经典的方法， objectness, selective search, category-independent object proposals, constrained parametric min-cuts(CPMC), multi-scale combinatorial group 。<br>最后文章中采用了 selective search 的方法。由于现在这些方法基本都被 Region Proposal Network 取代了，所以暂时不做进一步调研。</p>
+<h3 id="2-CNN-特征提取"><a href="#2-CNN-特征提取" class="headerlink" title="2. CNN 特征提取"></a>2. CNN 特征提取</h3><p>在这篇文章之前也有一些文章尝试使用 CNN 来提取特征用于检测任务， 如overfeat.</p>
+<h2 id="其他细节和分析"><a href="#其他细节和分析" class="headerlink" title="其他细节和分析"></a>其他细节和分析</h2><h3 id="1-Visualizing-learned-features"><a href="#1-Visualizing-learned-features" class="headerlink" title="1. Visualizing learned features"></a>1. Visualizing learned features</h3><p>第一层： capture oriented edges and opponent layers.<br>使用一个简单的非参数方法，将10 million个proposals根据单个单元的activations 进行排序，并采用非极大抑制，然后将期中top 16的proposal和acitvation 可视化出来进行观察。</p>
+<p>结论: 网络学习到的表达是 class-tuned features togather with a distributed represenataion of shape, texture, color and material properties.</p>
+<h3 id="2-Ablation-消除-studies"><a href="#2-Ablation-消除-studies" class="headerlink" title="2. Ablation(消除) studies"></a>2. Ablation(消除) studies</h3><h4 id="performance-layer-by-layer-without-fine-tuning"><a href="#performance-layer-by-layer-without-fine-tuning" class="headerlink" title="performance layer by layer, without fine-tuning"></a>performance layer by layer, without fine-tuning</h4><p>直接使用pretrained model 在 PASCAL VOC 上提特征，并用于SVM的训练。</p>
+<p>发现： 直接使用卷积层的特征比加上最后两层连接层的效果要好，尽管卷积层只占了6%的参数。这 告诉我们卷积层学到的图像特征更加general.</p>
+<h4 id="performance-layer-by-layer-with-fine-tuning"><a href="#performance-layer-by-layer-with-fine-tuning" class="headerlink" title="performance layer by layer with fine-tuning"></a>performance layer by layer with fine-tuning</h4><ol>
+<li>提升很大</li>
+<li>fc6,7 层比pool5变化大，说明pool features 更加general.</li>
+<li>进行fine-tuning之后最大的提升是来自于顶层，而非底层的特征提取器。</li>
+</ol>
+<p>Ref:  </p>
+<ol>
+<li>Rich feature hierarchies for accurate object detection adn semantic segmantaion.</li>
+<li><a href="https://zhuanlan.zhihu.com/p/23006190" target="_blank" rel="external">RCNN- 将CNN引入目标检测的开山之作。晓雷</a></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Object-Detection/" rel="tag"># Object_Detection</a>
+          
+        </div>
+      
+
+      
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/02/face-times-A-website-of-face/" rel="next" title="face_times_A_website_of_face">
+                <i class="fa fa-chevron-left"></i> face_times_A_website_of_face
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -358,6 +547,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="https://github.com/weiuniverse/weiuniverse.github.io/2018/03/28/RCNN/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -377,8 +577,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -440,6 +649,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要步骤"><span class="nav-number">2.</span> <span class="nav-text">主要步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#要点"><span class="nav-number">3.</span> <span class="nav-text">要点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Region-Proposal-候选区位置选择"><span class="nav-number">3.1.</span> <span class="nav-text">1. Region Proposal 候选区位置选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CNN-特征提取"><span class="nav-number">3.2.</span> <span class="nav-text">2. CNN 特征提取</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他细节和分析"><span class="nav-number">4.</span> <span class="nav-text">其他细节和分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Visualizing-learned-features"><span class="nav-number">4.1.</span> <span class="nav-text">1. Visualizing learned features</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Ablation-消除-studies"><span class="nav-number">4.2.</span> <span class="nav-text">2. Ablation(消除) studies</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-layer-by-layer-without-fine-tuning"><span class="nav-number">4.2.1.</span> <span class="nav-text">performance layer by layer, without fine-tuning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#performance-layer-by-layer-with-fine-tuning"><span class="nav-number">4.2.2.</span> <span class="nav-text">performance layer by layer with fine-tuning</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -553,6 +778,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -569,9 +798,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'weiuniverse-github-io';
-      var disqus_identifier = 'categories/concrete-mathematics/index.html';
+      var disqus_identifier = '2018/03/28/RCNN/';
 
-      var disqus_title = "";
+      var disqus_title = "目标检测论文重读 - RCNN";
 
 
       function run_disqus_script(disqus_script) {
@@ -584,6 +813,13 @@
 
       run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
       
 
     </script>
