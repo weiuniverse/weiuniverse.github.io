@@ -444,7 +444,7 @@
           <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>近期发现之前很多目标检测的论文都只是粗略的读了一遍，只把关键点过了一遍，现打算把论文再拿出来多读几遍，把论文中的一些思路和细节总结一遍。</p>
 <p>首先从RCNN说起吧。</p>
 <h2 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h2><p>RCNN算法分为4个步骤</p>
-<p>候选区域生成： 一张图像生成1K~2K个候选区域 （采用Selective Search 方法）<br>特征提取： 对每个候选区域，使用深度卷积网络提取特征 （CNN）<br>类别判断： 特征送入每一类的SVM 分类器，判别是否属于该类<br>位置精修： 使用回归器精细修正候选框位置<br><img src="steps.png" width="60%" height="60%"><br>
+<p>候选区域生成： 一张图像生成1K~2K个候选区域 （采用Selective Search 方法）<br>特征提取： 对每个候选区域，使用深度卷积网络提取特征 （CNN）<br>类别判断： 特征送入每一类的SVM 分类器，判别是否属于该类<br>位置精修： 使用回归器精细修正候选框位置<br><img src="https://github.com/weiuniverse/MarkdownPhotos/blob/master/blog/RCNN/steps.png" width="60%" height="60%"><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/28/RCNN/#more" rel="contents">
