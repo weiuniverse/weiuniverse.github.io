@@ -439,16 +439,10 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
-<h2 id="1-数据"><a href="#1-数据" class="headerlink" title="1.数据"></a>1.数据</h2><pre><code>数据预处理
-数据集尽可能大
-删除或填补所有具有损坏数据的训练样本
-数据增强: 创建新样本
-</code></pre><h2 id="2-适当的激活函数"><a href="#2-适当的激活函数" class="headerlink" title="2. 适当的激活函数"></a>2. 适当的激活函数</h2><pre><code>通常使用Relu函数，
-Sigmoid函数的缺陷：尾部饱和梯度消失
-</code></pre><h2 id="3-网络结构"><a href="#3-网络结构" class="headerlink" title="3. 网络结构"></a>3. 网络结构</h2><pre><code>Resnet，通常选用默认结构，或进行微调
-使用比最佳隐含单元数多的数量通常是安全的，因为正则化方法一定程度上都可以处理多余的单元
-隐含层只需不断增加，直到性能不在提升。层数越多表达能力越强，但过多时容易过拟合。
-</code></pre><h2 id="4-权重初始化"><a href="#4-权重初始化" class="headerlink" title="4. 权重初始化"></a>4. 权重初始化</h2><p>  使用小随机数初始化权重，通常使用框架推荐设置,如Xavier, He。</p>
+<h2 id="1-数据"><a href="#1-数据" class="headerlink" title="1.数据"></a>1.数据</h2><p>  数据预处理<br>  数据集尽可能大<br>  删除或填补所有具有损坏数据的训练样本<br>  数据增强: 创建新样本</p>
+<h2 id="2-适当的激活函数"><a href="#2-适当的激活函数" class="headerlink" title="2. 适当的激活函数"></a>2. 适当的激活函数</h2><p>  通常使用Relu函数，<br>  Sigmoid函数的缺陷：尾部饱和梯度消失</p>
+<h2 id="3-网络结构"><a href="#3-网络结构" class="headerlink" title="3. 网络结构"></a>3. 网络结构</h2><p>  Resnet，通常选用默认结构，或进行微调<br>  使用比最佳隐含单元数多的数量通常是安全的，因为正则化方法一定程度上都可以处理多余的单元<br>  隐含层只需不断增加，直到性能不在提升。层数越多表达能力越强，但过多时容易过拟合。</p>
+<h2 id="4-权重初始化"><a href="#4-权重初始化" class="headerlink" title="4. 权重初始化"></a>4. 权重初始化</h2><p>  使用小随机数初始化权重，通常使用框架推荐设置,如Xavier, He。</p>
 <h2 id="5-超参数微调"><a href="#5-超参数微调" class="headerlink" title="5. 超参数微调"></a>5. 超参数微调</h2><p>  网格搜索，效率较低<br>  靠经验调整<br>  随机搜索</p>
 <h2 id="6-优化方法"><a href="#6-优化方法" class="headerlink" title="6. 优化方法"></a>6. 优化方法</h2><p>  Adam通常使用默认值<br>  Adam比SGD好调且收敛速度快，但SGD + momentum 通常效果更好</p>
 <h2 id="7-batchsize"><a href="#7-batchsize" class="headerlink" title="7. batchsize"></a>7. batchsize</h2><p>  batchsize 过大影响梯度下降的随机性，过小则随机性过大，收敛不稳定。<br>  通常100左右，可以以一定倍数增加或者减少<br>  使用batch normalization</p>
