@@ -322,6 +322,175 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/13/GAN_overview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhengwei Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="weiuniverse's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/13/GAN_overview/" itemprop="url">
+                  GAN overview
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-13T16:50:00-07:00">
+                2017-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/deeplearning/" itemprop="url" rel="index">
+                    <span itemprop="name">deeplearning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/13/GAN_overview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/13/GAN_overview/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<h1 id="从生成模型到生成对抗网络"><a href="#从生成模型到生成对抗网络" class="headerlink" title="从生成模型到生成对抗网络"></a>从生成模型到生成对抗网络</h1><h2 id="1-生成模型与判别模型"><a href="#1-生成模型与判别模型" class="headerlink" title="1. 生成模型与判别模型"></a>1. 生成模型与判别模型</h2><p>主流的深度学习算法分为两种: 生成模型和判别模型。其中：</p>
+<h3 id="1-生成模型"><a href="#1-生成模型" class="headerlink" title="(1) 生成模型:"></a>(1) 生成模型:</h3><p>对联合分布 P(X,Y)进行建模。 X为输入，Y为输出或者隐含层。</p>
+<p>直观来讲，我们认为 输入的数据X和输出的标签或者回归值Y合并的变量构成一个分布P(X,Y)。而我们所有的训练样本 (X,Y)均是由这个分布生成。对于生成模型的目的，就是学习到这样一个分布，也可以说是(X,Y)的联合分布。生成模型可以得到模型中任何一个变量的值。</p>
+<h3 id="2-判别模型："><a href="#2-判别模型：" class="headerlink" title="(2) 判别模型："></a>(2) 判别模型：</h3><p>直接对 Y=f(X)或者 P(Y|X)建模。</p>
+<p>而对于判别模型，我们认为输入数据 X 和输出值 Y构成函数关系，而判别模型的任务就是学习直接学习到这个函数关系，从而直接由输入X估计输出值Y。<br>判别模型只能再给定输入的情况下得到输出的值。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/13/GAN_overview/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/weiuniverse/weiuniverse.github.io/2017/03/08/tensorflow_learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -520,7 +689,7 @@ mnist = input_data.read_data_sets(&quot;MNIST_data/&quot;,one_hot = True)
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -531,7 +700,7 @@ mnist = input_data.read_data_sets(&quot;MNIST_data/&quot;,one_hot = True)
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -542,7 +711,7 @@ mnist = input_data.read_data_sets(&quot;MNIST_data/&quot;,one_hot = True)
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
