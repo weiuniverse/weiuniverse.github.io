@@ -90,58 +90,52 @@
 
 
 
-<meta name="description" content="Mobile NetKeypoints:
+<meta name="description" content="MathJax.Hub.Config({
+tex2jax: {inlineMath: [[&apos;$&apos;,&apos;$&apos;], [&apos;\\(&apos;,&apos;\\)&apos;]]}
+});
+
+
+
+
+Mobile NetKeypoints:
 
 将标准的卷积操作拆分成了Depthwise Convolution和Pointwise Convolution
-总结了神经网络宽度变化$\alpha$以及分辨率变化$\rho$对准确率的影响。此处暂且不讨论。
-
-卷积拆分模型size和计算量对比
-
-
-
-
-Standard Convolution
-Depthwise Convolution
-Pointwis">
+总结了神经网络宽度变化$\alpha$以及分辨率变化$\rho$对准确率的影响。此处">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mobilenet 总结">
 <meta property="og:url" content="https://github.com/weiuniverse/weiuniverse.github.io/2020/06/02/mobilenet/index.html">
 <meta property="og:site_name" content="weiuniverse's Blog">
-<meta property="og:description" content="Mobile NetKeypoints:
+<meta property="og:description" content="MathJax.Hub.Config({
+tex2jax: {inlineMath: [[&apos;$&apos;,&apos;$&apos;], [&apos;\\(&apos;,&apos;\\)&apos;]]}
+});
+
+
+
+
+Mobile NetKeypoints:
 
 将标准的卷积操作拆分成了Depthwise Convolution和Pointwise Convolution
-总结了神经网络宽度变化$\alpha$以及分辨率变化$\rho$对准确率的影响。此处暂且不讨论。
-
-卷积拆分模型size和计算量对比
-
-
-
-
-Standard Convolution
-Depthwise Convolution
-Pointwis">
-<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/./mobilenet/mobilenet1.jpg">
-<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/./mobilenet/mbn2.jpg">
-<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/./mobilenet/mobilenetv2_1.png">
-<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/./mobilenet/mobilenetv2_3.jpg">
-<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/./mobilenet/mobilenetv2_2.jpg">
-<meta property="og:updated_time" content="2020-06-03T04:42:53.727Z">
+总结了神经网络宽度变化$\alpha$以及分辨率变化$\rho$对准确率的影响。此处">
+<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/mobilenet1.jpg">
+<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/mbn2.jpg">
+<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/mobilenetv2_1.png">
+<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/mobilenetv2_3.jpg">
+<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/mobilenetv2_2.jpg">
+<meta property="og:updated_time" content="2020-06-03T04:47:29.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mobilenet 总结">
-<meta name="twitter:description" content="Mobile NetKeypoints:
+<meta name="twitter:description" content="MathJax.Hub.Config({
+tex2jax: {inlineMath: [[&apos;$&apos;,&apos;$&apos;], [&apos;\\(&apos;,&apos;\\)&apos;]]}
+});
+
+
+
+
+Mobile NetKeypoints:
 
 将标准的卷积操作拆分成了Depthwise Convolution和Pointwise Convolution
-总结了神经网络宽度变化$\alpha$以及分辨率变化$\rho$对准确率的影响。此处暂且不讨论。
-
-卷积拆分模型size和计算量对比
-
-
-
-
-Standard Convolution
-Depthwise Convolution
-Pointwis">
-<meta name="twitter:image" content="https://github.com/weiuniverse/weiuniverse.github.io/./mobilenet/mobilenet1.jpg">
+总结了神经网络宽度变化$\alpha$以及分辨率变化$\rho$对准确率的影响。此处">
+<meta name="twitter:image" content="https://github.com/weiuniverse/weiuniverse.github.io/mobilenet1.jpg">
 
 
 
@@ -470,7 +464,15 @@ Pointwis">
       
 
       
-        <h2 id="Mobile-Net"><a href="#Mobile-Net" class="headerlink" title="Mobile Net"></a>Mobile Net</h2><p>Keypoints:</p>
+        <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<h2 id="Mobile-Net"><a href="#Mobile-Net" class="headerlink" title="Mobile Net"></a>Mobile Net</h2><p>Keypoints:</p>
 <ol>
 <li>将标准的卷积操作拆分成了Depthwise Convolution和Pointwise Convolution</li>
 <li>总结了神经网络宽度变化$\alpha$以及分辨率变化$\rho$对准确率的影响。此处暂且不讨论。</li>
@@ -519,10 +521,10 @@ Pointwis">
 <p>$\mathbf{K}<em>{i,j,m,n}=K(i,j,m,n)-&gt;K(i,j,m)\cdot K(m,n)=K</em>{i,j,m}\cdot K_{m,n}$</p>
 <center>Kernel</center>
 
-<p><img src="./mobilenet/mobilenet1.jpg" alt="mobilenet1" style="zoom:60%;"></p>
+<p><img src="mobilenet1.jpg" alt="mobilenet1" style="zoom:60%;"></p>
 <p>关于模型的具体结构：</p>
 <p>此处在Depthwise Conv和1x1 Conv后面添加了BN和ReLU，但在公式的拆分中没有体现，值得思考为何Depthwise之后也需要添加BN和ReLU。</p>
-<p><img src="./mobilenet/mbn2.jpg" alt="mbn2"></p>
+<p><img src="mbn2.jpg" alt="mbn2"></p>
 <h2 id="MobileNet2"><a href="#MobileNet2" class="headerlink" title="MobileNet2"></a>MobileNet2</h2><p>MobileNetV2在V1的基础上进行了改进，主要提出了两种新的结构：Linear Bottlenecks, Invert Residuals.</p>
 <h3 id="Linear-Bottlenecks"><a href="#Linear-Bottlenecks" class="headerlink" title="Linear Bottlenecks"></a>Linear Bottlenecks</h3><p>首先注意到2个性质: </p>
 <ol>
@@ -534,11 +536,11 @@ Pointwis">
 </li>
 </ol>
 <p>   据此，在原先的结构中添加一层Linear Bottlenecks层: 将维度先压缩，然后再通过ReLU，再使用1x1卷积增维, 如下图所示。</p>
-<p><img src="./mobilenet/mobilenetv2_1.png" alt="mobilenetv2_1" style="zoom:80%;"></p>
+<p><img src="mobilenetv2_1.png" alt="mobilenetv2_1" style="zoom:80%;"></p>
 <p>模型结构:</p>
-<p><img src="./mobilenet/mobilenetv2_3.jpg" alt="Screenshot2020_05_29_192843"></p>
+<p><img src="mobilenetv2_3.jpg" alt="Screenshot2020_05_29_192843"></p>
 <h3 id="Inverted-Residuals"><a href="#Inverted-Residuals" class="headerlink" title="Inverted Residuals"></a>Inverted Residuals</h3><p>在bottleneck处进行skip connection，内存消耗小，且在该论文的实验中效果稍好。</p>
-<p><img src="./mobilenet/mobilenetv2_2.jpg" alt="mobilenetv2_2"></p>
+<p><img src="mobilenetv2_2.jpg" alt="mobilenetv2_2"></p>
 
       
     </div>
