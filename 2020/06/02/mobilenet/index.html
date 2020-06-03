@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="lightweight_network," />
 
 
 
@@ -90,12 +90,58 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="weiuniverse's Blog">
-<meta property="og:url" content="https://github.com/weiuniverse/weiuniverse.github.io/archives/2019/11/index.html">
+<meta name="description" content="Mobile NetKeypoints:
+
+将标准的卷积操作拆分成了Depthwise Convolution和Pointwise Convolution
+总结了神经网络宽度变化$\alpha$以及分辨率变化$\rho$对准确率的影响。此处暂且不讨论。
+
+卷积拆分模型size和计算量对比
+
+
+
+
+Standard Convolution
+Depthwise Convolution
+Pointwis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mobilenet 总结">
+<meta property="og:url" content="https://github.com/weiuniverse/weiuniverse.github.io/2020/06/02/mobilenet/index.html">
 <meta property="og:site_name" content="weiuniverse's Blog">
+<meta property="og:description" content="Mobile NetKeypoints:
+
+将标准的卷积操作拆分成了Depthwise Convolution和Pointwise Convolution
+总结了神经网络宽度变化$\alpha$以及分辨率变化$\rho$对准确率的影响。此处暂且不讨论。
+
+卷积拆分模型size和计算量对比
+
+
+
+
+Standard Convolution
+Depthwise Convolution
+Pointwis">
+<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/./mobilenet/mobilenet1.jpg">
+<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/./mobilenet/mbn2.jpg">
+<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/./mobilenet/mobilenetv2_1.png">
+<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/./mobilenet/mobilenetv2_3.jpg">
+<meta property="og:image" content="https://github.com/weiuniverse/weiuniverse.github.io/./mobilenet/mobilenetv2_2.jpg">
+<meta property="og:updated_time" content="2020-06-03T04:42:53.727Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="weiuniverse's Blog">
+<meta name="twitter:title" content="mobilenet 总结">
+<meta name="twitter:description" content="Mobile NetKeypoints:
+
+将标准的卷积操作拆分成了Depthwise Convolution和Pointwise Convolution
+总结了神经网络宽度变化$\alpha$以及分辨率变化$\rho$对准确率的影响。此处暂且不讨论。
+
+卷积拆分模型size和计算量对比
+
+
+
+
+Standard Convolution
+Depthwise Convolution
+Pointwis">
+<meta name="twitter:image" content="https://github.com/weiuniverse/weiuniverse.github.io/./mobilenet/mobilenet1.jpg">
 
 
 
@@ -123,13 +169,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/weiuniverse/weiuniverse.github.io/archives/2019/11/"/>
+  <link rel="canonical" href="https://github.com/weiuniverse/weiuniverse.github.io/2020/06/02/mobilenet/"/>
 
 
 
 
 
-  <title> Archive | weiuniverse's Blog </title>
+  <title> mobilenet 总结 | weiuniverse's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -172,7 +218,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -310,66 +356,260 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Um..! 16 posts in total. Keep on posting.
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/weiuniverse/weiuniverse.github.io/2020/06/02/mobilenet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhengwei Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="weiuniverse's Blog">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                mobilenet 总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-02T20:00:00+08:00">
+                2020-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deep-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep_learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/06/02/mobilenet/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://github.com/weiuniverse/weiuniverse.github.io/2020/06/02/mobilenet/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <h2 id="Mobile-Net"><a href="#Mobile-Net" class="headerlink" title="Mobile Net"></a>Mobile Net</h2><p>Keypoints:</p>
+<ol>
+<li>将标准的卷积操作拆分成了Depthwise Convolution和Pointwise Convolution</li>
+<li>总结了神经网络宽度变化$\alpha$以及分辨率变化$\rho$对准确率的影响。此处暂且不讨论。</li>
+</ol>
+<h3 id="卷积拆分"><a href="#卷积拆分" class="headerlink" title="卷积拆分"></a>卷积拆分</h3><p>模型size和计算量对比</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Standard Convolution</th>
+<th>Depthwise Convolution</th>
+<th>Pointwise Convolution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kernel Size</td>
+<td>$D_K\times D_K\times M\times N$</td>
+<td>$D_K\times D_K \times  M$</td>
+<td>$M\times  N$</td>
+</tr>
+<tr>
+<td>Computation Cost</td>
+<td>$D_K\cdot D_K\cdot M\cdot N\cdot D_F\cdot D_F$</td>
+<td>$D_K\cdot D_K\cdot M\cdot D_F\cdot D_F$</td>
+<td>$M\cdot N\cdot D_F\cdot D_F$</td>
+</tr>
+<tr>
+<td>Ratio/standard</td>
+<td>1</td>
+<td>$\frac{1}{N}$</td>
+<td>$\frac{1}{D_K^2}$</td>
+</tr>
+</tbody>
+</table>
+<p>相关公式:</p>
+<p>Standard Convolution:</p>
+<p>$\mathbf{G}<em>{k, l, n}=\sum</em>{i, j, m} \mathbf{K}<em>{i, j, m, n} \cdot \mathbf{F}</em>{k+i-1, l+j-1, m}$</p>
+<p>Depthwise convolution:</p>
+<p>$$\hat{\mathbf{G}}<em>{k,j,m}=\sum</em>{i,j}\hat{\mathbf{K}}<em>{i,j,m}\mathbf{F}</em>{k+i-1,l+j-1,m} $$</p>
+<p>Pointwise convolution(1x1 Convolution):</p>
+<p>$\mathbf{G}<em>{k,l,n}=\sum</em>{m} \hat{\mathbf{G}}<em>{k,l,m}\mathbf{K}</em>{m,n}$</p>
+<p>Combination:</p>
+<p>$\begin{aligned}<br>&amp;\mathbf{G}<em>{k, l, n}=\sum</em>{m}\left(\sum<em>{i=1} \hat{\mathbf{K}}</em>{i, j, m} \cdot \mathbf{F}<em>{k+i-1,l+j-1,m}\right) \mathbf{K}</em>{m, n}\<br>&amp;=\sum<em>{m} \sum</em>{i,j}\left(\hat{\mathbf{K}}<em>{i,j,m} \mathbf{K}</em>{m, n}\right) \mathbf{F}_{k+i+1, l+j-1, m}<br>\end{aligned}$</p>
+<p>理解：将Standard Convolution拆开实际上是一种解耦，认为使用</p>
+<p>$\mathbf{K}<em>{i,j,m,n}=K(i,j,m,n)-&gt;K(i,j,m)\cdot K(m,n)=K</em>{i,j,m}\cdot K_{m,n}$</p>
+<center>Kernel</center>
+
+<p><img src="./mobilenet/mobilenet1.jpg" alt="mobilenet1" style="zoom:60%;"></p>
+<p>关于模型的具体结构：</p>
+<p>此处在Depthwise Conv和1x1 Conv后面添加了BN和ReLU，但在公式的拆分中没有体现，值得思考为何Depthwise之后也需要添加BN和ReLU。</p>
+<p><img src="./mobilenet/mbn2.jpg" alt="mbn2"></p>
+<h2 id="MobileNet2"><a href="#MobileNet2" class="headerlink" title="MobileNet2"></a>MobileNet2</h2><p>MobileNetV2在V1的基础上进行了改进，主要提出了两种新的结构：Linear Bottlenecks, Invert Residuals.</p>
+<h3 id="Linear-Bottlenecks"><a href="#Linear-Bottlenecks" class="headerlink" title="Linear Bottlenecks"></a>Linear Bottlenecks</h3><p>首先注意到2个性质: </p>
+<ol>
+<li><p>If the manifold of interest remains non-zero volume after ReLU transformation, it corresponds to a linear transformation. ReLU(x) = x, x&gt;0</p>
+<p>当值大于0时，ReLU相当于线性</p>
+</li>
+<li><p>ReLU is capable of preserving complete information about the input manifold, but only if the input manifold lies in a low-dimensional subspace of the input space.</p>
+<p>当输入维度比较低的时候，ReLU可以保留较为完整的信息</p>
+</li>
+</ol>
+<p>   据此，在原先的结构中添加一层Linear Bottlenecks层: 将维度先压缩，然后再通过ReLU，再使用1x1卷积增维, 如下图所示。</p>
+<p><img src="./mobilenet/mobilenetv2_1.png" alt="mobilenetv2_1" style="zoom:80%;"></p>
+<p>模型结构:</p>
+<p><img src="./mobilenet/mobilenetv2_3.jpg" alt="Screenshot2020_05_29_192843"></p>
+<h3 id="Inverted-Residuals"><a href="#Inverted-Residuals" class="headerlink" title="Inverted Residuals"></a>Inverted Residuals</h3><p>在bottleneck处进行skip connection，内存消耗小，且在该论文的实验中效果稍好。</p>
+<p><img src="./mobilenet/mobilenetv2_2.jpg" alt="mobilenetv2_2"></p>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2019">2019</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/lightweight-network/" rel="tag"># lightweight_network</a>
+          
         </div>
       
+
+      
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/24/about_death/" rel="next" title="谈死亡">
+                <i class="fa fa-chevron-left"></i> 谈死亡
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2019/11/24/about_death/" itemprop="url">
-              
-                <span itemprop="name">谈死亡</span>
-              
-            </a>
-        
-      </h1>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-11-24T16:30:00+08:00"
-              content="2019-11-24" >
-          11-24
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -377,6 +617,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="https://github.com/weiuniverse/weiuniverse.github.io/2020/06/02/mobilenet/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -396,8 +647,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -459,6 +719,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mobile-Net"><span class="nav-number">1.</span> <span class="nav-text">Mobile Net</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积拆分"><span class="nav-number">1.1.</span> <span class="nav-text">卷积拆分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MobileNet2"><span class="nav-number">2.</span> <span class="nav-text">MobileNet2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Bottlenecks"><span class="nav-number">2.1.</span> <span class="nav-text">Linear Bottlenecks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inverted-Residuals"><span class="nav-number">2.2.</span> <span class="nav-text">Inverted Residuals</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -572,11 +848,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   
@@ -594,9 +868,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'weiuniverse-github-io';
-      var disqus_identifier = 'archives/2019/11/index.html';
+      var disqus_identifier = '2020/06/02/mobilenet/';
 
-      var disqus_title = "";
+      var disqus_title = "mobilenet 总结";
 
 
       function run_disqus_script(disqus_script) {
@@ -609,6 +883,13 @@
 
       run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
       
 
     </script>
