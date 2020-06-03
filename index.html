@@ -322,6 +322,203 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/weiuniverse/weiuniverse.github.io/2020/05/18/mobilenet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhengwei Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="weiuniverse's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2020/05/18/mobilenet/" itemprop="url">
+                  Untitled
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-18T22:01:13+08:00">
+                2020-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/18/mobilenet/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://github.com/weiuniverse/weiuniverse.github.io/2020/05/18/mobilenet/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>轻量级网络</p>
+<h2 id="Mobile-Net"><a href="#Mobile-Net" class="headerlink" title="Mobile Net"></a>Mobile Net</h2><p>Keypoints:</p>
+<ol>
+<li>将标准的卷积操作拆分成了Depthwise Convolution和Pointwise Convolution</li>
+<li>总结了神经网络宽度变化$\alpha$以及分辨率变化$\rho$对准确率的影响。此处暂且不讨论。</li>
+</ol>
+<h3 id="卷积拆分"><a href="#卷积拆分" class="headerlink" title="卷积拆分"></a>卷积拆分</h3><p>模型size和计算量对比</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Standard Convolution</th>
+<th>Depthwise Convolution</th>
+<th>Pointwise Convolution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kernel Size</td>
+<td>$D_K\times D_K\times M\times N$</td>
+<td>$D_K\times D_K \times  M$</td>
+<td>$M\times  N$</td>
+</tr>
+<tr>
+<td>Computation Cost</td>
+<td>$D_K\cdot D_K\cdot M\cdot N\cdot D_F\cdot D_F$</td>
+<td>$D_K\cdot D_K\cdot M\cdot D_F\cdot D_F$</td>
+<td>$M\cdot N\cdot D_F\cdot D_F$</td>
+</tr>
+<tr>
+<td>Ratio/standard</td>
+<td>1</td>
+<td>$\frac{1}{N}$</td>
+<td>$\frac{1}{D_K^2}$</td>
+</tr>
+</tbody>
+</table>
+<p>相关公式:</p>
+<p>Standard Convolution:</p>
+<p>$\mathbf{G}<em>{k, l, n}=\sum</em>{i, j, m} \mathbf{K}<em>{i, j, m, n} \cdot \mathbf{F}</em>{k+i-1, l+j-1, m}$</p>
+<p>Depthwise convolution:</p>
+<p>$$\hat{\mathbf{G}}<em>{k,j,m}=\sum</em>{i,j}\hat{\mathbf{K}}<em>{i,j,m}\mathbf{F}</em>{k+i-1,l+j-1,m} $$</p>
+<p>Pointwise convolution(1x1 Convolution):</p>
+<p>$\mathbf{G}<em>{k,l,n}=\sum</em>{m} \hat{\mathbf{G}}<em>{k,l,m}\mathbf{K}</em>{m,n}$</p>
+<p>Combination:</p>
+<p>$\begin{aligned}<br>&amp;\mathbf{G}<em>{k, l, n}=\sum</em>{m}\left(\sum<em>{i=1} \hat{\mathbf{K}}</em>{i, j, m} \cdot \mathbf{F}<em>{k+i-1,l+j-1,m}\right) \mathbf{K}</em>{m, n}\<br>&amp;=\sum<em>{m} \sum</em>{i,j}\left(\hat{\mathbf{K}}<em>{i,j,m} \mathbf{K}</em>{m, n}\right) \mathbf{F}_{k+i+1, l+j-1, m}<br>\end{aligned}$</p>
+<p>理解：将Standard Convolution拆开实际上是一种解耦，认为使用</p>
+<p>$\mathbf{K}<em>{i,j,m,n}=K(i,j,m,n)-&gt;K(i,j,m)\cdot K(m,n)=K</em>{i,j,m}\cdot K_{m,n}$</p>
+<center>Kernel</center>
+
+<p><img src="./mobilenet/mobilenet1.jpg" alt="mobilenet1" style="zoom:60%;"></p>
+<p>关于模型的具体结构：</p>
+<p>此处在Depthwise Conv和1x1 Conv后面添加了BN和ReLU，但在公式的拆分中没有体现，值得思考为何Depthwise之后也需要添加BN和ReLU。</p>
+<p><img src="./mobilenet/mbn2.jpg" alt="mbn2"></p>
+<h2 id="MobileNet2"><a href="#MobileNet2" class="headerlink" title="MobileNet2"></a>MobileNet2</h2><p>MobileNetV2在V1的基础上进行了改进，主要提出了两种新的结构：Linear Bottlenecks, Invert Residuals.</p>
+<h3 id="Linear-Bottlenecks"><a href="#Linear-Bottlenecks" class="headerlink" title="Linear Bottlenecks"></a>Linear Bottlenecks</h3><p>首先注意到2个性质: </p>
+<ol>
+<li><p>If the manifold of interest remains non-zero volume after ReLU transformation, it corresponds to a linear transformation. ReLU(x) = x, x&gt;0</p>
+<p>当值大于0时，ReLU相当于线性</p>
+</li>
+<li><p>ReLU is capable of preserving complete information about the input manifold, but only if the input manifold lies in a low-dimensional subspace of the input space.</p>
+<p>当输入维度比较低的时候，ReLU可以保留较为完整的信息</p>
+</li>
+</ol>
+<p>   据此，在原先的结构中添加一层Linear Bottlenecks层: 将维度先压缩，然后再通过ReLU，再使用1x1卷积增维, 如下图所示。</p>
+<p><img src="./mobilenet/mobilenetv2_1.png" alt="mobilenetv2_1" style="zoom:80%;"></p>
+<p>模型结构:</p>
+<p><img src="./mobilenet/mobilenetv2_3.jpg" alt="Screenshot2020_05_29_192843"></p>
+<h3 id="Inverted-Residuals"><a href="#Inverted-Residuals" class="headerlink" title="Inverted Residuals"></a>Inverted Residuals</h3><p>在bottleneck处进行skip connection，内存消耗小，且在该论文的实验中效果稍好。</p>
+<p><img src="./mobilenet/mobilenetv2_2.jpg" alt="mobilenetv2_2"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/weiuniverse/weiuniverse.github.io/2019/11/24/about_death/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -361,7 +558,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-24T16:30:00-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-24T16:30:00+08:00">
                 2019-11-24
               </time>
             
@@ -523,7 +720,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-28T23:40:00-07:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-28T23:40:00+08:00">
                 2019-10-28
               </time>
             
@@ -717,7 +914,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-27T00:21:00-07:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-27T00:21:00+08:00">
                 2019-08-27
               </time>
             
@@ -991,7 +1188,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-07T19:00:00-07:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-07T19:00:00+08:00">
                 2019-08-07
               </time>
             
@@ -1155,7 +1352,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-24T19:00:00-07:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-24T19:00:00+08:00">
                 2019-07-24
               </time>
             
@@ -1366,7 +1563,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T11:01:27-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T11:01:27+08:00">
                 2019-01-28
               </time>
             
@@ -1531,7 +1728,7 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T13:32:53-07:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T13:32:53+08:00">
                 2018-03-28
               </time>
             
@@ -1699,7 +1896,7 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-02T23:09:04-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-02T23:09:04+08:00">
                 2017-12-02
               </time>
             
@@ -1862,7 +2059,7 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-15T21:42:38-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-15T21:42:38+08:00">
                 2017-11-15
               </time>
             
@@ -1978,172 +2175,6 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/weiuniverse/weiuniverse.github.io/2017/11/07/progressive-gan/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhengwei Wei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="weiuniverse's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/11/07/progressive-gan/" itemprop="url">
-                  progressive_gan
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-07T21:25:24-08:00">
-                2017-11-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/deeplearning/" itemprop="url" rel="index">
-                    <span itemprop="name">deeplearning</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/deeplearning/paper-read/" itemprop="url" rel="index">
-                    <span itemprop="name">paper_read</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/07/progressive-gan/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://github.com/weiuniverse/weiuniverse.github.io/2017/11/07/progressive-gan/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><h3 id="Primary-contribution"><a href="#Primary-contribution" class="headerlink" title="Primary contribution:"></a>Primary contribution:</h3><p>  Propose a training methodology for GANs where start with low-resolution images, and then progressively increase the resolution by adding layers to the networks.</p>
-<h3 id="Others"><a href="#Others" class="headerlink" title="Others:"></a>Others:</h3><p>  Increasing variation using minibatch standard deviation<br>  A new normalization in G and D<br>  Propose sliced Wasserstein distance (SWD) to estimate the statistical similarity.<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/07/progressive-gan/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2193,7 +2224,7 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -2257,7 +2288,7 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
